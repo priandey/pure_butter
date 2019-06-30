@@ -7,4 +7,4 @@ install:
 services:
         - postgresql
 script:
-        - pipenv run manage.py test
+        - python -m manage.py test
