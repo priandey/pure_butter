@@ -6,4 +6,4 @@ before_script:
 services:
         - postgresql
 script:
-        - manage.py test
+        - pipenv run manage.py test
