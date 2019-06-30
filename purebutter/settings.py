@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "=s0%hf@)trb5)brff4j_vg+%6akoru(tjlh@a(fv^t(jqtonth"
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "https://pure-butter.herokuapp.com/"]
+ALLOWED_HOSTS = ["127.0.0.1", "51.15.193.179"]
 
 SITE_ID = 1
 
@@ -84,8 +84,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'purebutter',
-        'USER': 'postgres',
-        'PASSWORD': 'pitour',
+        'USER': 'archenior',
+        'PASSWORD': os.environ.get("DB_PWD"),
         'HOST': "",
         'PORT': '5432',
     }
@@ -129,5 +129,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+if os.environ.get("ENV") == "PRODUCTION":
+    STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 AIL = True
