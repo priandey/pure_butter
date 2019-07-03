@@ -4,7 +4,7 @@ python:
 install:
         - 'pip install pipenv'
         - 'pipenv install'
-env: DJANGO_SETTINGS_MODULE="purebutter.settings.travis"
+env: DJANGO_SETTINGS_MODULE=purebutter.settings.travis
 
 services:
         - postgresql
